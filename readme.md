@@ -1,37 +1,45 @@
 # Sitemap Generator
 
-## Introduction
-This script is designed to automate the creation of sitemaps in XML format. Just provide the link of the website to be mapped and the script will do the rest. The sitemap files are generated and saved in a newly created folder within your computer's download directory. The name of this folder will be in the format *sitemap_dd-mm-yyy_hh-mm-ss*.
+Sitemap Generator is a lightweight Python tool that crawls a website and automatically generates XML sitemap files compliant with the Sitemap Protocol.
 
-In addition, to ensure good organization and optimize performance, URLs are divided into several sitemaps. Each sitemap will contain a maximum of 10000 URLs, so as to avoid overly large sitemaps and facilitate indexing by search engines.
+The crawler starts from a given URL, discovers all internal links within the same domain, and exports them into one or more sitemap files. To improve organization and comply with search engine recommendations, each sitemap contains a maximum of **10,000 URLs**.
 
+## Features
 
+* Crawl an entire website starting from a single URL
+* Discover internal links automatically
+* Generate XML sitemaps compatible with search engines
+* Split large websites into multiple sitemap files (10,000 URLs per file)
+* Automatically create a timestamped output folder inside the Downloads directory
+* Pretty-formatted XML output
+* Simple command-line interface
 
-## Utilize technologies
+## Technologies
+
+* Python 3.12+
+* requests
+* BeautifulSoup4
+* xml.etree.ElementTree
+* xml.dom.minidom
+
+## Usage
+
+```bash
+py sitemap_generator.py
 ```
-Programming language: Python
-```
 
+Then enter the website URL when prompted:
 
-
-## Installation & Execution
-- Install Python on your computer. You can install it through Microsoft store or you can download the .exe file from the official site (The recommended version for this script is 3.12.4 or up).
-Link for install python:
-
-```
-https://www.python.org/downloads/windows/
-````
-
-
-- Start the script you can open the script with the python compiler you installed in first point or you go on the position of script and either with the command on terminal:
-
-```
-py sitemap_generator.py 
-```
-
-
-- Enter the link to the site you want to map, example: 
-
-```
+```text
 https://example.com
+```
+
+Generated sitemap files will be saved inside:
+
+```text
+Downloads/
+└── sitemap_files_dd-mm-yyyy_hh-mm-ss/
+    ├── sitemap_1.xml
+    ├── sitemap_2.xml
+    └── ...
 ```
